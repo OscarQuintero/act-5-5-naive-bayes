@@ -4,6 +4,8 @@ import random
 
 import pandas
 
+nombreArchivoCSV = "play_db.csv"
+
 def limpiarPantalla():	
 	if(os.name == "posix"):
 		os.system("clear")
@@ -11,8 +13,20 @@ def limpiarPantalla():
 		os.system("cls")
 
 
+
+
+#------------------------------------------------------------------------------------
+
+
 print("Actividad 5.5")
 print("Implementación del Algoritmo de Naïve-Bayes")
+
+# Importar archivo CSV en un dataframe de pandas:
+
+df = pandas.read_csv(nombreArchivoCSV)
+
+print(df)
+
 
 
 
