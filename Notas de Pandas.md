@@ -68,3 +68,5 @@ Por condiciones
 
 	df[(df["ColumnaX"] > 400 & df["ColumnaY"] > 20)]
 	df[ df["ColumnaX"].str.contains("cadena")]
+
+	listaAtributos = ConjuntoInicial.columns.tolist()

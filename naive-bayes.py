@@ -101,8 +101,8 @@ for i in listaIndicesAleatorios:
 ConjuntoPrueba = ConjuntoInicial.iloc[listaIndicesPrueba]
  
 print("Se han encontrado ", numeroDeInstancias, " instancias en el Conjunto Inicial")
-print("El porcentaje de instancias de entrenamiento es: ", porcentajeEntrenamiento, "%")
-print("El porcentaje de instancias de prueba es: ", 100-porcentajeEntrenamiento, "%")
+print("El porcentaje de instancias de entrenamiento es:\t", porcentajeEntrenamiento, "%")
+print("El porcentaje de instancias de prueba es:       \t", 100-porcentajeEntrenamiento, "%")
 print("En consecuencia se determina que")
 print("Se usarán ", numeroDeInstanciasEntrenamiento," instancias para aentrenamiento y")
 print("se usarán ", numeroDeInstancias - numeroDeInstanciasEntrenamiento," instancias para prueba.")
@@ -117,6 +117,40 @@ print("\n")
 
 ###########################
 
+listaAtributos = ConjuntoInicial.columns.tolist()
+listaAtributos.remove(nombreClase)
+listaClases = ConjuntoInicial[nombreClase].unique().tolist()
+print(listaAtributos)
+print(listaClases)
+print("\n")
 
+TablaDatatypes = ConjuntoInicial.select_dtypes(exclude=['int64', 'bool'])
+listaAtributosCategoricos = TablaDatatypes.columns.tolist()
+listaAtributosCategoricos.remove(nombreClase)
+print(listaAtributosCategoricos)
+
+for atributo in listaAtributosCategoricos:
+	print(ConjuntoInicial[atributo].unique().tolist())
+	print(ConjuntoInicial[[atributo,nombreClase]])
+	dframe = pandas.DataFrame(columns=["Valor"]+listaClases)
+	dframe = dframe.astype('int64')
+	dframe["Valor"] = dframe["Valor"].astype("object")
+	auxList = []
+	k=0
+	for valor in ConjuntoInicial[atributo].unique().tolist():
+	# 	auxList.append({"Valor": valor, })
+		auxDicc = {"Valor": valor}
+		for clase in listaClases:
+			auxDicc[clase] = len(ConjuntoInicial[(ConjuntoInicial[atributo].str.contains(str(valor)) & ConjuntoInicial[nombreClase].str.contains(str(clase)))].index)
+		print(auxDicc)
+		dframe[k] = auxDicc
+		k+=1	
+	print(dframe)	
+	 
+
+
+#print(TablaDatatypes)
+
+# print(ConjuntoInicial[(ConjuntoInicial[atributo])])
 
 
