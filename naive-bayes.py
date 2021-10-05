@@ -146,6 +146,8 @@ for atributo in listaAtributosCategoricos:
 		dframe[k] = auxDicc
 		k+=1	
 	print(dframe)	
+
+	print('prueba')
 	 
 
 
