@@ -147,7 +147,14 @@ for atributo in listaAtributosCategoricos:
 		k+=1	
 	print(dframe)	
 
-	print('prueba')
+	
+
+	lajkhsflkajhsdflkjsahdlfkjahsdlkfjhasdf
+
+	asdfakshdgfkajhsgdfkajhsdgfkajshdfgakjshdfgas
+	akjsdhfgkajhsdgfkajhsgdfkajshdfgkajsdhfgaskdf
+	aksjhdfgakjshdgfkajsdhfgkasjdfhgaksdf
+
 	 
 
 
